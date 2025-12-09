@@ -18,7 +18,7 @@ pub(all) struct Tree {
 }
 
 ///|
-pub fn Edge::new(from~ : Int, to~ : Int, label~ : String = "") -> Edge {
+pub fn Edge::new(from~ : Int, to~ : Int, label? : String = "") -> Edge {
   { from, to, label }
 }
 

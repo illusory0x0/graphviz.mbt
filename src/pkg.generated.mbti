@@ -1,0 +1,37 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "illusory0x0/graphviz"
+
+// Values
+
+// Errors
+
+// Types and methods
+pub(all) struct Digraph {
+  edges : Array[Edge]
+  nodes : Array[Node]
+}
+pub impl Show for Digraph
+
+pub(all) struct Edge {
+  from : Int
+  to : Int
+  label : String
+}
+pub fn Edge::new(from~ : Int, to~ : Int, label? : String) -> Self
+
+pub(all) struct Node {
+  id : Int
+  label : String
+}
+pub fn Node::new(id~ : Int, label~ : String) -> Self
+
+pub(all) struct Tree {
+  label : String
+  children : Array[Tree]
+}
+pub fn Tree::to_digraph(Self) -> Digraph
+
+// Type aliases
+
+// Traits
+

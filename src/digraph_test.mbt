@@ -5,7 +5,7 @@ enum Expr {
 }
 
 ///|
-fn eval_path(self : Expr) -> Digraph {
+fn Expr::eval_path(self : Expr) -> Digraph {
   let edges = []
   let nodes = []
   let mut cnt = 0
@@ -34,7 +34,7 @@ fn eval_path(self : Expr) -> Digraph {
 }
 
 ///|
-fn dump_ast(self : Expr) -> Digraph {
+fn Expr::dump_ast(self : Expr) -> Digraph {
   fn dfs(self : Expr) -> Tree {
     match self {
       Add(l, r) => Tree::{ label: "+", children: [dfs(l), dfs(r)] }
@@ -46,14 +46,14 @@ fn dump_ast(self : Expr) -> Digraph {
 }
 
 ///|
-test (t : @test.T) {
+test (t : @test.Test) {
   let expr = Add(Add(Lit(3), Lit(5)), Add(Lit(7), Lit(8)))
   t.writeln(expr.eval_path())
   t.snapshot(filename="expr.dot")
 }
 
 ///|
-test (t : @test.T) {
+test (t : @test.Test) {
   let expr = Add(Add(Lit(3), Lit(5)), Add(Lit(7), Lit(8)))
   t.writeln(expr.dump_ast())
   t.snapshot(filename="ast.dot")
